@@ -16,11 +16,11 @@ module JenkinsPipeline
     private
 
     def find_job(name, jobs)
-      jobs.find {|job| job["name"] == name }
+      jobs.find { |job| job["name"] == name }
     end
 
     def upstream_status(jobs, job_config)
-      upstream_job = jobs.find {|j| j.ci_name == job_config["upstream"] }
+      upstream_job = jobs.find { |job| job.ci_name == job_config["upstream"] }
       return "" if upstream_job.nil?
       upstream_job.status
     end
